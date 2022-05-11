@@ -8,7 +8,7 @@ const generatedImages = ref([]);
 
 onMounted(async () => {
         try {
-            const res = await axios(`https://memebuild.com/api/1.0/myRecentMemes?api-key=${API_KEY}`);
+            const res = await axios(`https://memebuild.com/api/1.0/myRecentMemes?limit=100?api-key=${API_KEY}`);
             generatedImages.value = res.data
             console.log(res);
         } catch (e) {

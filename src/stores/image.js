@@ -20,7 +20,7 @@ export const image = ref({
         return this.url;
     },
     deleteImage() {
-        this.url = ""
+        this.url = VueLogo
     }
 
 })
