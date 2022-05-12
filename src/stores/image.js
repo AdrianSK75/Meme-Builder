@@ -67,4 +67,23 @@ export function postMeme(filename) {
         })
 }
 
-// a1c343ec691170d6b299fed61195d1 -> prefectul API
+// Reusable GET requests - Bug fixing -> receive a HTML data, no a JSON
+// async function getImages(request) {
+//     let images = new Array();
+//     try {
+//         const res = await axios(`https://memebuild.com/api/${request}`);
+//         images = res.data
+//         console.log(res);
+//     } catch (e) {
+//         console.log(e);
+//     }
+//     return images
+// }
+
+// export const typeOfImages = ref({
+//     background: getImages("generatedMemes"),
+//     generated: getImages(`1.0/myRecentMemes?api-key=${API_KEY}&limit=100`)
+// })
+
+
+

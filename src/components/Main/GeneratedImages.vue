@@ -8,13 +8,14 @@ const generatedImages = ref([]);
 
 onMounted(async () => {
         try {
-            const res = await axios(`https://memebuild.com/api/1.0/myRecentMemes?limit=100?api-key=${API_KEY}`);
-            generatedImages.value = res.data
+            const res = await axios(`https://memebuild.com/api/1.0/myRecentMemes?api-key=${API_KEY}&limit=100`);
+            generatedImages.value = res.data.reverse();
             console.log(res);
         } catch (e) {
             console.log(e);
         }
 })
+
 function getImgUrl(file) {
     return "https://storage.googleapis.com/memebuild/uploads/" + file + ".jpg"
 }

@@ -17,7 +17,6 @@ onMounted(async () => {
 function getImgUrl(file) {
     return "https://storage.googleapis.com/memebuild/default/" + file + ".jpg"
 }
-
 </script>
 
 <template v-if = "backgroundImages">
