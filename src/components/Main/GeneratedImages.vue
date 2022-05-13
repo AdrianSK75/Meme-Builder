@@ -22,17 +22,17 @@ function getImgUrl(file) {
 
 </script>
 
-<template v-if = "generatedImages">
-                <div v-for = "meme of generatedImages" :key = "meme.id">
-                      <a class = "photoButton" 
-                      @click = "image.dowloandImage(meme.file)">
-                            <img 
-                            class = "photo"
-                            :src = "getImgUrl(meme.file)" 
-                            :alt = "meme.name"
-                        />
-                        </a>   
-                </div>
+<template>
+        <div v-for = "meme of generatedImages" :key = "meme.id">
+                <a class = "photoButton" 
+                @click = "image.dowloandImage(meme.file)">
+                <img 
+                class = "photo"
+                :src = "getImgUrl(meme.file)" 
+                :alt = "meme.name"
+                />
+                </a>   
+        </div>
 </template>
 
 <style lang="scss" scoped>
@@ -40,14 +40,12 @@ function getImgUrl(file) {
     display: block;
     margin: 0 auto;
     
-    max-width: 81%;
+    max-width: 90%;
     max-height: 60%;
     margin-bottom: 16px;
 }
 .photoButton {
     display: block;
-    max-width: 100%;
-    max-height: 100%;
     cursor: pointer;
 }
 </style>

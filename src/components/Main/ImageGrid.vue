@@ -28,26 +28,23 @@ const swipe = ref(false)
 <style lang="scss" scoped>
 
 .image-grid {
-    display: block;
+    display: grid;
     padding: 16px;
     
     @media (min-width: 768px) {
-        display: grid;
         
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 300px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 400px;
     }
     @media (min-width: 960px) {
-        display: grid;
         
-        grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 300px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 400px;
     }
     @media (min-width: 1200px) {
-        display: grid;
         
         grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 300px;
+        grid-auto-rows: 400px;
     }
     grid-gap: 16px;
 }

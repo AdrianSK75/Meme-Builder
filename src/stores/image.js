@@ -67,7 +67,7 @@ export function postMeme(filename) {
         })
 }
 
-// Reusable GET requests - Bug fixing -> receive a HTML data, no a JSON
+// Reusable GET requests - Bug fixing -> receive a HTML data, not a JSON
 // async function getImages(request) {
 //     let images = new Array();
 //     try {
