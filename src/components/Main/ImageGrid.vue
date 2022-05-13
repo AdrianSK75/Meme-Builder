@@ -1,6 +1,7 @@
 <script setup>
 import BackgroundImages from "./BackgroundImages.vue"
 import GeneratedImages from "./GeneratedImages.vue"
+import SwiperButtons from "./SwiperButtons.vue"
 import { ref } from 'vue'
 
 const swipe = ref(false)
@@ -9,12 +10,10 @@ const swipe = ref(false)
 
 // Gallery Swiper
 <template>
-    <hr>
-    <br>
-    <div class="buttons-grid">
-        <button @click = "swipe = false"> Background Images </button>
-        <button @click = "swipe = true"> Generated Images </button>
-    </div>
+    
+    <SwiperButtons 
+    @swipeGallery = "(value) => swipe = value"
+    />
 
     <div class = "image-grid" v-if="!swipe">
             <BackgroundImages />
@@ -27,10 +26,7 @@ const swipe = ref(false)
 </template>
 
 <style lang="scss" scoped>
-.buttons-grid {
-    text-align: center;
-    display: block;
-}
+
 .image-grid {
     display: block;
     padding: 16px;
