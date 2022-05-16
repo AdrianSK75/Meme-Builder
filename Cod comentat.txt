@@ -1,0 +1,43 @@
+Displaying the photo' HTML 
+                        
+
+Top-Grid Code HTML
+
+
+Script
+// data() {
+        //     return {
+        //         api_key: "9b418cfa3343d661223bcf1fe61a4b",
+        //         pictureUrl: "",
+        //         actualPicture: "",
+        //         topText: "TOP",
+        //         bottomText: "BOTTOM",
+        //         memes: [],
+        //     };
+        // },
+
+
+        // async created() {
+        //     try {
+        //         const res = await axios("https://memebuild.com/api/getDefaultMemes");
+        //         this.memes = res.data;
+        //         console.log(res);
+        //     } catch (e) {
+        //         console.log(e);
+        //     } 
+        // },
+
+        // methods: {
+        ,
+
+        //     getPicture() {
+        //         return this.pictureUrl;
+        //     },
+
+        //     deletePicture() {
+        //         this.pictureUrl = "";
+        //         this.actualPicture = ""
+        //     },
+
+        
+        // }
