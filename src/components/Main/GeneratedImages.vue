@@ -1,10 +1,11 @@
 <script setup>
 import { ref, onMounted } from "vue"
-import { image } from "../../stores/image"
 import { API_KEY } from "../../stores/image"
+import ShareModal from "../Modals/ShareModal.vue"
 import axios from "axios"
 
 const generatedImages = ref([]);
+const showModal = ref(false);
 
 onMounted(async () => {
         try {
@@ -25,7 +26,7 @@ function getImgUrl(file) {
 <template>
         <div v-for = "meme of generatedImages" :key = "meme.id">
                 <a class = "photoButton" 
-                @click = "image.dowloandImage(meme.file)">
+                @click = "showModal = true">
                 <img 
                 class = "photo"
                 :src = "getImgUrl(meme.file)" 
@@ -33,6 +34,13 @@ function getImgUrl(file) {
                 />
                 </a>   
         </div>
+
+        <Teleport to="body">
+            <ShareModal 
+            :show="showModal" 
+            @close="showModal = false"
+            ></ShareModal>
+        </Teleport>
 </template>
 
 <style lang="scss" scoped>
