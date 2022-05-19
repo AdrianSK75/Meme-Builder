@@ -1,13 +1,17 @@
-<script setup>
-import { ref, onMounted } from "vue"
+<script >
+import { ref } from "vue"
 import { API_KEY } from "../../stores/image"
-import ShareModal from "../Modals/ShareModal.vue"
+import GeneratedImage from "./GeneratedImage.vue"
 import axios from "axios"
 
-const generatedImages = ref([]);
-const showModal = ref(false);
+export default {
+    components: {
+        GeneratedImage
+    },
+    async setup() {
+        const generatedImages = ref([]);
+        const showModal = ref(false);
 
-onMounted(async () => {
         try {
             const res = await axios(`https://memebuild.com/api/1.0/myRecentMemes?api-key=${API_KEY}&limit=100`);
             generatedImages.value = res.data.reverse();
@@ -15,45 +19,19 @@ onMounted(async () => {
         } catch (e) {
             console.log(e);
         }
-})
 
-function getImgUrl(file) {
-    return "https://storage.googleapis.com/memebuild/uploads/" + file + ".jpg"
+        return {
+            generatedImages,
+            showModal
+        }
+    }
 }
-
 </script>
 
 <template>
-        <div v-for = "meme of generatedImages" :key = "meme.id">
-                <a class = "photoButton" 
-                @click = "showModal = true">
-                <img 
-                class = "photo"
-                :src = "getImgUrl(meme.file)" 
-                :alt = "meme.name"
-                />
-                </a>   
-        </div>
-
-        <Teleport to="body">
-            <ShareModal 
-            :show="showModal" 
-            @close="showModal = false"
-            ></ShareModal>
-        </Teleport>
+        <GeneratedImage
+            v-for= "meme of generatedImages"
+            :meme = "meme"
+            :key = "meme.id"
+        />
 </template>
-
-<style lang="scss" scoped>
-.photo {
-    display: block;
-    margin: 0 auto;
-    
-    max-width: 90%;
-    max-height: 60%;
-    margin-bottom: 16px;
-}
-.photoButton {
-    display: block;
-    cursor: pointer;
-}
-</style>

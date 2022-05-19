@@ -16,11 +16,25 @@ const swipe = ref(false)
     />
 
     <div class = "image-grid" v-if="!swipe">
-            <BackgroundImages />
+            <Suspense>
+                <template #default> 
+                    <BackgroundImages />
+                </template>
+                <template #fallback> 
+                    <h1> Loading... </h1>
+                </template>
+            </Suspense>
     </div>
 
     <div class = "image-grid" v-if="swipe">
-            <GeneratedImages />
+            <Suspense>
+                <template #default> 
+                    <GeneratedImages />
+                </template>
+                <template #fallback> 
+                    <h1> Loading... </h1>
+                </template>
+            </Suspense>
     </div>
 
 </template>

@@ -67,23 +67,3 @@ export function postMeme(filename) {
         })
 }
 
-// Reusable GET requests - Bug fixing -> receive a HTML data, not a JSON
-// async function getImages(request) {
-//     let images = new Array();
-//     try {
-//         const res = await axios(`https://memebuild.com/api/${request}`);
-//         images = res.data
-//         console.log(res);
-//     } catch (e) {
-//         console.log(e);
-//     }
-//     return images
-// }
-
-// export const typeOfImages = ref({
-//     background: getImages("generatedMemes"),
-//     generated: getImages(`1.0/myRecentMemes?api-key=${API_KEY}&limit=100`)
-// })
-
-
-
