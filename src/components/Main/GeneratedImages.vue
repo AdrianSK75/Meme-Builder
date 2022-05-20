@@ -10,7 +10,6 @@ export default {
     },
     async setup() {
         const generatedImages = ref([]);
-        const showModal = ref(false);
 
         try {
             const res = await axios(`https://memebuild.com/api/1.0/myRecentMemes?api-key=${API_KEY}&limit=100`);
@@ -22,7 +21,6 @@ export default {
 
         return {
             generatedImages,
-            showModal
         }
     }
 }

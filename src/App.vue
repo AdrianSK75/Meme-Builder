@@ -18,14 +18,13 @@ import TopGrid from '../src/components/Header/TopGrid.vue'
     
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: montserrat, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  justify-content: center;
+  margin: 0 auto;
   background-color: #9772FB;
   margin-top: 20px;
-}
-.main {
-    background-color: #066163;
 }
 </style>

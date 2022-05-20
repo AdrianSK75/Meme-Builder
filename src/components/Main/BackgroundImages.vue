@@ -9,7 +9,6 @@ export default {
         },
         async setup() {
                 const backgroundImages = ref([]);
-
                 try {
                     const res = await axios("https://memebuild.com/api/getDefaultMemes");
                     backgroundImages.value = res.data
@@ -17,7 +16,7 @@ export default {
                 } catch (e) {
                     console.log(e);
                 }
-
+                
                 return {
                     backgroundImages,
                 }

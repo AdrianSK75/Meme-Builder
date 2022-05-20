@@ -16,6 +16,7 @@ import ChoosedImage from "../Header/ChoosedImage.vue"
 
 <style lang="scss" scoped>
 .top-grid {
+    background-color: #EFFFFD; 
     text-align: center;
 }
 </style>

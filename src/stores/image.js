@@ -2,26 +2,30 @@ import { ref } from 'vue'
 import axios from 'axios'
 import VueLogo from "./logo.png"
 
-export const API_KEY = "d8d56d43357a52a6d9c46890f26c63"
+export const API_KEY = "f5f983230ccd289c313849871a9c42"
 
 export const image = ref({
-    file: "",
+    name: "",
     url: VueLogo,
-    setImage(value) {
-        this.file = value
+    setImageName(value) {
+        this.name = value
     },
-    setUrl(url) {
+    setImageUrl(url) {
         this.url = url
     },
-    getBackgroundImage() {
-        return "https://storage.googleapis.com/memebuild/default/" + this.file + ".jpg"
+    getImageName() {
+        return this.name
     },
-    getGeneratedImage() {
-        return this.url;
+    getImageUrl() {
+        return this.url
     },
-    deleteImage() {
-        this.url = VueLogo
+    setLogo() {
+        this.url = VueLogo;
+    },
+    deleteUrl() {
+        this.url = "";
     }
+
 
 })
 
@@ -35,32 +39,30 @@ export const text = ref({
         this.bottom = text;
     },
     getTopText() {
-        return this.top;
+        return this.top.toUpperCase();
     },
     getBottomText() {
-        return this.bottom;
+        return this.bottom.toUpperCase();
     }
-
-
 })
 
-export function postMeme(filename) {
-        image.value.deleteImage();
-        image.value.setImage(filename);
-        //console.log(image.value.getBackgroundImage())
+// Steps to generate a post
+export function postMeme() {
+        // #1 -> Delete the last url
+        image.value.deleteUrl();
+        console.log(image.value.getImageName())
+        // #2 -> Add the new data to the Form
         const meme = new FormData();
-
         meme.append("topText", text.value.getTopText());
         meme.append("bottomText", text.value.getBottomText());
-        meme.append("imgUrl", image.value.getBackgroundImage());
-
-        
+        meme.append("imgUrl", "https://storage.googleapis.com/memebuild/default/" + image.value.getImageName() + ".jpg");
+        // #3 -> Post the data to the MemeBuild Server
         axios.post(`https://memebuild.com/api/1.0/generateMeme?api-key=${API_KEY}`, meme)
         .then((response) => {
                 console.log(response);
-                
-                image.value.setUrl(response.data.url)
-                console.log(image.value.getGeneratedImage())
+                // #4 Set the Image Url with the new one
+                image.value.setImageUrl(response.data.url)
+                console.log(image.value.getImageUrl())
         })
         .catch(function (error) {
                 console.log(error);

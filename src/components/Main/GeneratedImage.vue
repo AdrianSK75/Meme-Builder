@@ -22,7 +22,7 @@ function getImgUrl(file) {
 .photo {
     display: block;
     margin: 0 auto;
-    
+    border-radius: 10px;
     max-width: 90%;
     max-height: 90%;
     margin-bottom: 16px;

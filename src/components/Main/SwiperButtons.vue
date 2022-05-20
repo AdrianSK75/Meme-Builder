@@ -10,17 +10,26 @@ const sendEvent = (status) => {
 </script>
 
 <template>
-    <hr>
-    <br>
+    
     <div class="buttons-grid">
-        <button @click = "sendEvent(false)"> Background Images </button>
-        <button @click = "sendEvent(true)"> Generated Images </button>
+        <button class = "button-image" @click = "sendEvent(false)"> Background Images </button>
+        <button class = "button-image" @click = "sendEvent(true)"> Generated Images </button>
+        <br>
     </div>
+    
 </template>
 
 <style lang="scss" scoped>
 .buttons-grid {
-    text-align: center;
     display: block;
+    text-align: center;
+    background-color: #B8FFF9;  
+}
+.button-image {
+    padding: 3px 9px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 450;
+    margin: 0 8px;
 }
 </style>
