@@ -21,7 +21,7 @@ function getImage() {
 
 <style lang="scss" scoped>
 .selected-photo {
-    display: grid;
+    display: block;
     margin: 0 auto;
     border-radius: 10px;
     max-width: 50%;
