@@ -1,14 +1,3 @@
-<script setup>
-import { image } from "../../stores/image"
-import SkeletonImage from "./SkeletonImage.vue"
-
-function getImage() {
-    if (image.value.url)
-        return image.value.url;
-}
-
-</script>
-
 <template> 
        <SkeletonImage 
         v-if="!image.url"/>
@@ -18,6 +7,16 @@ function getImage() {
         :src = "getImage()" 
         alt = "meme" /><br><br>
 </template>
+
+<script setup>
+import { image } from "../../composable/useMeme"
+import SkeletonImage from "./SkeletonImage.vue"
+
+function getImage() {
+    if (image.value.url)
+        return image.value.url;
+}
+</script>
 
 <style lang="scss" scoped>
 .selected-photo {

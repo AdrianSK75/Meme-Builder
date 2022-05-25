@@ -12,7 +12,6 @@ import { defineProps } from "vue";
 const props = defineProps({
     meme: Object
 })
-
 function getImgUrl(file) {
     return "https://storage.googleapis.com/memebuild/uploads/" + file + ".jpg"
 }
@@ -26,6 +25,10 @@ function getImgUrl(file) {
     max-width: 90%;
     max-height: 90%;
     margin-bottom: 16px;
+    opacity: 1;
+}
+.photo.show {
+    opacity: 2;
 }
 .photoButton {
     display: block;

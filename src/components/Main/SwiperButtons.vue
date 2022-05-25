@@ -1,23 +1,19 @@
-<script setup>
-import { defineEmits } from "vue"
-
-const emit = defineEmits(['swipeGallery'])
-
-const sendEvent = (status) => {
-    emit('swipeGallery', status)
-}
-
-</script>
-
 <template>
-    
     <div class="buttons-grid">
         <button class = "button-image" @click = "sendEvent(false)"> Background Images </button>
         <button class = "button-image" @click = "sendEvent(true)"> Generated Images </button>
         <br>
-    </div>
-    
+    </div> 
 </template>
+
+<script setup>
+import { defineEmits } from "vue"
+
+const emit = defineEmits(['swipeGallery'])
+const sendEvent = (status) => {
+    emit('swipeGallery', status)
+}
+</script>
 
 <style lang="scss" scoped>
 .buttons-grid {

@@ -6,12 +6,11 @@
 
 <script setup>
 import { defineProps } from "vue";
-import { image } from "../../stores/image"
+import { image } from "../../composable/useMeme"
 
 const props = defineProps({
     meme: Object
 })
-
 function setImageLocation(imageName) {
     const imageUrl = getImgUrl(imageName);
     console.log(imageUrl, "\n", imageName)
@@ -19,7 +18,6 @@ function setImageLocation(imageName) {
     image.value.setImageName(imageName)
     console.log(image.value.getImageUrl())
 }
-
 function getImgUrl(imageName) {
     return "https://storage.googleapis.com/memebuild/default/" + imageName + ".jpg"
 }
@@ -33,6 +31,7 @@ function getImgUrl(imageName) {
     max-width: 90%;
     max-height: 90%;
     margin-bottom: 16px;
+    opacity: 1;
 }
 .photoButton {
     display: block;

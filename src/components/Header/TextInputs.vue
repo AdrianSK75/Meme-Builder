@@ -1,18 +1,18 @@
-<script setup>
-import { text } from "../../stores/image"
-</script>
-
 <template>
     <input
     type = "text"
     class = "text-input"
-    v-model = "text.top"><br><br>
-                
+    v-model = "text.top"><br><br>      
     <input 
     type = "text"
     class = "text-input" 
     v-model = "text.bottom"><br><br>
 </template>
+
+<script setup>
+import { text } from "../../composable/useMeme"
+</script>
+
 <style lang="scss" scoped>
 .text-input {
     padding: 3px 9px;

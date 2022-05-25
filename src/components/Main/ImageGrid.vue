@@ -1,21 +1,8 @@
-<script setup>
-import BackgroundImages from "./BackgroundImages.vue"
-import GeneratedImages from "./GeneratedImages.vue"
-import SwiperButtons from "./SwiperButtons.vue"
-import SkeletonImage from "./SkeletonImage.vue"
-import { ref } from 'vue'
-
-const swipe = ref(false)
-
-</script>
-
 // Gallery Swiper
-<template>
-    
+<template>  
     <SwiperButtons 
     @swipeGallery = "(value) => swipe = value"
     />
-
     <div class = "image-grid" v-if="!swipe">
             <Suspense>
                 <template #default> 
@@ -29,7 +16,6 @@ const swipe = ref(false)
                 </template>
             </Suspense>
     </div>
-
     <div class = "image-grid" v-if="swipe">
             <Suspense>
                 <template #default> 
@@ -43,8 +29,17 @@ const swipe = ref(false)
                 </template>
             </Suspense>
     </div>
-
 </template>
+
+<script setup>
+import BackgroundImages from "./BackgroundImages.vue"
+import GeneratedImages from "./GeneratedImages.vue"
+import SwiperButtons from "./SwiperButtons.vue"
+import SkeletonImage from "./SkeletonImage.vue"
+import { ref } from 'vue'
+
+const swipe = ref(false)
+</script>
 
 <style lang="scss" scoped>
 .image-grid {
