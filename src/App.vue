@@ -1,30 +1,14 @@
-<script setup>
-import ImageGrid from '../src/components/Main/ImageGrid'
-import TopGrid from '../src/components/Header/TopGrid.vue'
-</script>
-
 <template> 
-        <div class = "main">
-            <TopGrid />   
-            <ImageGrid />
-        </div>
+        <router-view />
 </template>
 
-<style lang = "scss" scoped>
+<style>
 * {
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-}
-#app {
-  font-family: montserrat, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  justify-content: center;
-  margin: 0 auto;
-  background-color: #9772FB;
-  margin-top: 20px;
+    font-family: 'Lobster', cursive;
+    line-height: 1.6;
 }
 </style>
